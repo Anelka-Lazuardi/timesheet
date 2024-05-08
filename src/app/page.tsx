@@ -6,7 +6,7 @@ import FormProject from '@/components/project/form';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import SearchIcon from '@mui/icons-material/Search';
-import { Box, Button, Card, CardContent, Divider, IconButton, InputAdornment, Stack, TextField, Typography } from '@mui/material';
+import { Badge, Box, Button, Card, CardContent, Divider, IconButton, InputAdornment, Stack, TextField, Typography } from '@mui/material';
 import axios from 'axios';
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from 'react';
@@ -97,7 +97,9 @@ const FormMain = (props: Props) => {
                   onChange={(e) => updateStateFilter({ ...filterData, filterTitle: e.target.value })}
                 />
                 <IconButton sx={{ border: "2px solid #F8F9FA", borderRadius: 1.3 }} onClick={() => setOpenFilter(true)}>
-                  <FilterListIcon color='error' fontSize='large' />
+                  <Badge badgeContent={filterData.filterProject.length} color="error">
+                    <FilterListIcon color='error' fontSize='large' />
+                  </Badge>
                 </IconButton>
               </Stack>
             </Stack>
